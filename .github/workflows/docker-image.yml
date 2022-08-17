@@ -8,13 +8,6 @@ on:
 
 jobs:
    
-  login:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v1
-      - name: Docker login
-        run: |
-          echo ${{ secrets.DOCKERHUB_PASSWORD }} | docker login -u ${{ secrets.DOCKERHUB_USER }} --password-stdin
 
   build:
     runs-on: ubuntu-latest
@@ -22,6 +15,14 @@ jobs:
       - name: Build the Docker image
         run: |
           docker build . --file Dockerfile --tag ronbrian/prometheus:latest
+          
+  login:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Docker login
+        run: |
+          echo ${{ secrets.DOCKERHUB_PASSWORD }} | docker login -u ${{ secrets.DOCKERHUB_USER }} --password-stdin
           
   push:
     runs-on: ubuntu-latest
