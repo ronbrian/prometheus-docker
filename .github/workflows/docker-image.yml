@@ -13,7 +13,7 @@ jobs:
     steps:
       - name: Docker login
         run: |
-          docker login --username ${{ secrets.DOCKERHUB_USER }} --password-stdin ${{ secrets.DOCKERHUB_PASSWORD }}
+          echo ${{ secrets.DOCKERHUB_PASSWORD }} | docker login -u ${{ secrets.DOCKERHUB_USER }} --password-stdin
 
   build:
     runs-on: ubuntu-latest
