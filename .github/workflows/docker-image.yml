@@ -23,6 +23,7 @@ jobs:
     steps:
       - name: Push the Docker image
         run: |
+          ls && pwd
           docker build .  -t ronbrian/prometheus:latest
           docker push ronbrian/prometheus:latest
 
