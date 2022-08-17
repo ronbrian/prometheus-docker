@@ -7,14 +7,25 @@ on:
     branches: [ "master" ]
 
 jobs:
+   
+  login:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Docker login
+        run: |
+          docker login --username ${{ secrets.DOCKERHUB_USER }} -- password ${{ secrets.DOCKERHUB_PASSWORD }}
 
   build:
-
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v3
-    - name: Build the Docker image
-      run: docker login --username ${{ secrets.DOCKERHUB_USER }} -- password ${{ secrets.DOCKERHUB_PASSWORD }}
-           docker build . --file Dockerfile --tag ronbrian/prometheus:latest
-           docker push ronbrian/prometheus:latest
+      - name: Build the Docker image
+        run: |
+          docker build . --file Dockerfile --tag ronbrian/prometheus:latest
+          
+  push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Push the Docker image
+        run: |
+          docker push ronbrian/prometheus:latest
+
