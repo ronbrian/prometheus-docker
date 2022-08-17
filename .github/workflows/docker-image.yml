@@ -26,4 +26,4 @@ jobs:
       - name: Push the Docker image
         run: |
           docker build .  -t ronbrian/prometheus:latest
-          docker push ronbrian/prometheus:latest
+#          docker push ronbrian/prometheus:latest
