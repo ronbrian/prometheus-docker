@@ -15,5 +15,6 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker login
+      run: docker login --username ${{ secrets.DOCKERHUB_USER }} -- password ${{ secrets.DOCKERHUB_PASSWORD }}
            docker build . --file Dockerfile --tag ronbrian/prometheus:latest
+           docker push ronbrian/prometheus:latest
