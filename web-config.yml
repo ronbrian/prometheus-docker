@@ -1,7 +1,7 @@
 http_server_config:
   # Enable HTTP/2 support. Note that HTTP/2 is only supported with TLS.
   # This can not be changed on the fly.
-  [ http2: <boolean> | default = true ]
+  [ http2: true ]
   
 # Usernames and hashed passwords that have full access to the web
 # server via basic authentication. If empty, no basic authentication is
