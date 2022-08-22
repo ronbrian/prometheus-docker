@@ -13,3 +13,14 @@ scrape_configs:
     - targets:
       - coredns.service.local:9153
 
+http_server_config:
+  # Enable HTTP/2 support. Note that HTTP/2 is only supported with TLS.
+  # This can not be changed on the fly.
+  [ http2: <boolean> | default = true ]
+  
+# Usernames and hashed passwords that have full access to the web
+# server via basic authentication. If empty, no basic authentication is
+# required. Passwords are hashed with bcrypt.
+
+basic_auth_users:
+    admin: $2b$12$hNf2lSsxfm0.i4a.1kVpSOVyBCfIB51VRjgBUyv6kdnyTlgWj81Ay
