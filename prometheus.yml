@@ -3,23 +3,13 @@ global:
   evaluation_interval: 15s
 
 scrape_configs:
-  - job_name: kube-dns
+  - job_name: jenkins
     honor_timestamps: true
     scrape_interval: 30s
     scrape_timeout: 15s
-    metrics_path: /metrics
     scheme: http
     static_configs:
     - targets:
-      - 10.0.0.10:9153
+      - jenkins.apps.svc.cluster.local/prometheus/
       
-  - job_name: kube-state-metrics
-    honor_timestamps: true
-    scrape_interval: 30s
-    scrape_timeout: 15s
-    metrics_path: /metrics
-    scheme: http
-    static_configs:
-    - targets:
-      - ks-metrics-kube-state-metrics.apps.svc.cluster.local:8080
 
