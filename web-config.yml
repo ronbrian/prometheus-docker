@@ -3,4 +3,4 @@
 # required. Passwords are hashed with bcrypt.
 
 basic_auth_users:
-  admin: $2b$12$BQdTzwgYggRF6497JqnWKOiQKmDzInTM4RlTqS.sVO/Wnz/lGHxie
+  admin: $2b$12$oR5dRLb58M/rHCVSuLHa6e37.gCsn61VTx0SMLyPgh7tNnRFrh/ny
