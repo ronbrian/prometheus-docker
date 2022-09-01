@@ -14,7 +14,7 @@ scrape_configs:
       - 10.0.0.10:9153
 
 scrape_configs:
-  - job_name: kube-dns
+  - job_name: kube-state-metrics
     honor_timestamps: true
     scrape_interval: 30s
     scrape_timeout: 15s
