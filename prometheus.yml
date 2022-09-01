@@ -8,8 +8,9 @@ scrape_configs:
     scrape_interval: 30s
     scrape_timeout: 15s
     scheme: http
+    metrics_path: /prometheus
     static_configs:
     - targets:
-      - jenkins.apps.svc.cluster.local/prometheus/
+      - jenkins.apps.svc.cluster.local
       
 
